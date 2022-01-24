@@ -1,14 +1,21 @@
 import React from 'react'
-
 export function TodoItem({todo, cambiarEstado}){
 
-    const {id, task, des, completed} = todo;
+    const {id, task, des, importancia} = todo;
 
     const fnCambiarEstado = () => {
         cambiarEstado(id);
     }
 
-    return <td>
-        <input bcolor="blue" type="checkbox" onChange={fnCambiarEstado} checked={completed} className="form-check-input me-2"></input>
-        {task}<br/>{des}</td>
+    return <div id="principal" className="card bg-warning text-dark m-2" style={{width:'15rem'}}>
+        <div className="card-body ">
+        <div className="card-header">{task} <button className="btn bg-warning ms-2 text-dark mb-1" onClick={fnCambiarEstado}>X</button></div>
+        <div className="card-body"> {des}
+        <hr/>
+        {importancia}
+    
+        </div>
+        </div>
+        </div>
+    
 }
